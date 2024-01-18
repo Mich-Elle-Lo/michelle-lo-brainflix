@@ -1,0 +1,122 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.header {
+  margin: 0;
+  background-color: $primary-white;
+  border-bottom: 0.5rem solid $primary-silver;
+  width: 100%;
+  height: auto;
+  padding-top: $m-padding-space;
+  padding-bottom: $m-padding-space;
+  padding-left: $m-padding-sides;
+  padding-right: $m-padding-sides;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include tablet-breakpoint {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: $t-padding-space;
+    padding-bottom: $t-padding-space;
+    padding-left: $t-padding-sides;
+    padding-right: $t-padding-sides;
+  }
+  &__logobox {
+    height: $logo-height;
+    width: $logo-width;
+  }
+  &__logo {
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/Logo/BrainFlix-logo.svg);
+    @include logo-cover;
+  }
+  &__flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    @include tablet-breakpoint {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: flex-end;
+    }
+  }
+  &__mobileflex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    @include tablet-breakpoint {
+      width: $form-width;
+    }
+  }
+  &__search {
+    display: flex;
+    width: 100%;
+    height: $form-height-mobile;
+    border: $form-border-default;
+    border-radius: $form-border-radius;
+    padding: $form-padding-mobile;
+    @include tablet-breakpoint {
+      height: $form-height-tablet;
+      width: $form-width;
+    }
+  }
+  &__input {
+    @include mobile-tablet-labels-buttons-text-style;
+    border: none;
+    height: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__profile {
+    background-image: url(../../assets/Images/Mohan-muruge.jpg);
+    @include background-cover;
+    padding: 0.5rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    &--tablet {
+      display: none;
+    }
+    @include tablet-breakpoint {
+      &--tablet {
+        display: flex;
+      }
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+  &__tablet {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    @include tablet-breakpoint {
+      width: 25%;
+    }
+  }
+  &__button {
+    @include mobile-tablet-labels-buttons-text-style;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary-blue;
+    width: $btn-mobile-width;
+    height: $btn-height;
+    border-radius: $btn-border-radius;
+    border: none;
+    color: $primary-white;
+    @include tablet-breakpoint {
+      width: $btn-tablet-width;
+    }
+  }
+}
