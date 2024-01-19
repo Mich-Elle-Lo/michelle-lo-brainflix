@@ -4,7 +4,7 @@ import "./VideoData.scss";
 import { videoDescription } from "../../App";
 import { useContext } from "react";
 export default function VideoData() {
-  const { videos, selectedVideo } = useContext(videoDescription);
+  const { selectedVideo } = useContext(videoDescription);
   return (
     <div className="videosection">
       <div className="videosection__title">{selectedVideo.title}</div>
