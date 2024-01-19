@@ -13,7 +13,7 @@ export default function VideoPlayer(props) {
           <ReactPlayer
             className="video__player"
             controls
-            width="100%"
+            width="auto"
             height="25rem"
             url={selectedVideo.video}
             light={videos.image}
