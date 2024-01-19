@@ -1,25 +1,25 @@
-import { useState } from "react";
+import { videoDescription } from "../../App";
+import { useContext } from "react";
 import ReactPlayer from "react-player";
-import data from "../../Data/videos.json";
 
-export default function VideoPlayer() {
-  const [videos, setImg] = useState(data);
-
-  const imgUrl = videos[0].image;
-  const videoUrl = "https://youtu.be/bv_cEeDlop0?feature=shared";
+export default function VideoPlayer(props) {
+  const { videos, selectedVideo } = useContext(videoDescription);
+  // const imgUrl = selectedVideo;
+  // const videoUrl = props.details.video;
   return (
     <>
       <div className="video">
-        <ReactPlayer
-          className="video__player"
-          controls
-          width="100%"
-          height="25rem"
-          url={videoUrl}
-          light={imgUrl}
-        />
+        <div className="video__wrapper">
+          <ReactPlayer
+            className="video__player"
+            controls
+            width="100%"
+            height="25rem"
+            url={selectedVideo.video}
+            light={videos.image}
+          />
+        </div>
       </div>
     </>
   );
 }
-console.log(data);

@@ -1,0 +1,72 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.videosection {
+  margin: 0;
+  background-color: $primary-white;
+  width: 100%;
+  height: auto;
+  padding-top: $m-padding-space;
+  padding-bottom: $m-padding-space;
+  padding-left: $m-padding-sides;
+  padding-right: $m-padding-sides;
+  color: $primary-black;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+  @include tablet-breakpoint {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: $t-padding-space;
+    padding-bottom: $t-padding-space;
+    padding-left: $t-padding-sides;
+    padding-right: $t-padding-sides;
+  }
+
+  &__title {
+    @include mobile-tablet-pageheader-text-style;
+  }
+  &__channel,
+  &__timestamp,
+  &__views,
+  &__likes,
+  &__description {
+    @include mobile-tablet-body-text-style;
+  }
+  &__channel {
+    font-weight: $bold-txt;
+  }
+  &__underline {
+    width: 100%;
+    border-bottom: 0.1rem solid grey;
+    @include tablet-breakpoint {
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+  &__box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__logobox {
+    display: flex;
+    gap: 0.5rem;
+  }
+  &__subbox {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @include tablet-breakpoint {
+      flex-direction: row;
+      gap: 1rem;
+      width: auto;
+    }
+  }
+}
