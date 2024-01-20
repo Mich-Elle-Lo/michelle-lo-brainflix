@@ -3,8 +3,10 @@ import likeslogo from "../../assets/Icons/likes.svg";
 import "./VideoData.scss";
 import { videoDescription } from "../../App";
 import { useContext } from "react";
+
 export default function VideoData() {
   const { selectedVideo } = useContext(videoDescription);
+
   return (
     <div className="videosection">
       <div className="videosection__title">{selectedVideo.title}</div>

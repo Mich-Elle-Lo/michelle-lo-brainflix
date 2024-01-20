@@ -2,10 +2,9 @@ import { videoDescription } from "../../App";
 import { useContext } from "react";
 import ReactPlayer from "react-player";
 
-export default function VideoPlayer(props) {
-  const { videos, selectedVideo } = useContext(videoDescription);
-  // const imgUrl = selectedVideo;
-  // const videoUrl = props.details.video;
+export default function VideoPlayer() {
+  const { selectedVideo } = useContext(videoDescription);
+
   return (
     <>
       <div className="video">
@@ -16,7 +15,7 @@ export default function VideoPlayer(props) {
             width="auto"
             height="25rem"
             url={selectedVideo.video}
-            light={videos.image}
+            light={selectedVideo.image}
           />
         </div>
       </div>
