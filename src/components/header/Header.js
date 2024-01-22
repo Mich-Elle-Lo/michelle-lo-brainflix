@@ -11,7 +11,7 @@ export default function Header() {
         </div>
         <div className="header__flex">
           <div className="header__mobileflex">
-            <div className="header__search">
+            <form className="header__search">
               <img
                 className="header__searchlogo"
                 src={searchlogo}
@@ -23,7 +23,7 @@ export default function Header() {
                 id="searchBar"
                 className="header__input"
               />
-            </div>
+            </form>
             <div className="header__profile header__profile--mobile"></div>
           </div>
           <button className="header__button">

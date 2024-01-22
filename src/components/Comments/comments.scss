@@ -15,7 +15,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   @include tablet-breakpoint {
     display: flex;
     flex-direction: column;
@@ -24,6 +23,9 @@
     padding-bottom: $t-padding-space;
     padding-left: $t-padding-sides;
     padding-right: $t-padding-sides;
+  }
+  @include desktop-breakpoint {
+    padding-right: 0;
   }
   &__num {
     @include mobile-tablet-body-text-style;
@@ -87,7 +89,6 @@
   &__inputbox {
     width: 100%;
   }
-
   &__input {
     @include mobile-tablet-labels-buttons-text-style;
     border: $form-border-default;
@@ -130,10 +131,17 @@
     border-radius: $btn-border-radius;
     border: none;
     color: $primary-white;
-
     @include tablet-breakpoint {
       width: $btn-tablet-width;
       margin-bottom: 0.3rem;
+    }
+    @include desktop-breakpoint {
+      margin-right: 1rem;
+    }
+    &:hover {
+      background-color: $secondary-dark-blue;
+      color: $primary-white;
+      cursor: pointer;
     }
   }
   &__card {
@@ -168,5 +176,8 @@
   }
   &__time {
     color: $secondary-mercury;
+    @include desktop-breakpoint {
+      margin-right: 1rem;
+    }
   }
 }

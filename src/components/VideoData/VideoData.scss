@@ -25,9 +25,9 @@
     padding-left: $t-padding-sides;
     padding-right: $t-padding-sides;
   }
-
   &__title {
     @include mobile-tablet-pageheader-text-style;
+    color: $primary-black;
   }
   &__channel,
   &__timestamp,
@@ -35,9 +35,15 @@
   &__likes,
   &__description {
     @include mobile-tablet-body-text-style;
+    color: $primary-black;
   }
   &__channel {
     font-weight: $bold-txt;
+  }
+  &__timestamp,
+  &__views,
+  &__likes {
+    color: $secondary-mercury;
   }
   &__underline {
     width: 100%;

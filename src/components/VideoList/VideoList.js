@@ -3,14 +3,11 @@ import "./VideoList.scss";
 import { videoDescription } from "../../App";
 import { useContext } from "react";
 
-function VideoList({ filteredVideo, handleSelectVideo }) {
-  //   const { videos } = useContext(videoDescription);
-  //   const list = filteredVideo;
-
+export default function VideoList({ filteredVideo, handleSelectVideo }) {
   return (
     <>
-      <div>VideoList</div>
       <div className="videolist">
+        <div className="videolist__title">Next Videos</div>
         {filteredVideo.map((video) => (
           <div
             className="videolist__card"
@@ -36,5 +33,3 @@ function VideoList({ filteredVideo, handleSelectVideo }) {
     </>
   );
 }
-
-export default VideoList;

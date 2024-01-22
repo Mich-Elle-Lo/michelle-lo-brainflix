@@ -15,13 +15,16 @@ function App() {
   const [videos, setVideos] = useState(Data);
   const [selectedVideo, setSelectedVideo] = useState(videoDetails[0]);
 
+  //CLICK ID FUNCTION
   const handleSelectVideo = (clickedID) => {
     const foundVideo = videoDetails.find((video) => clickedID === video.id);
     setSelectedVideo(foundVideo);
   };
 
+  //FILTER VIDEO
   const filteredVideo = videos.filter((video) => video.id !== selectedVideo.id);
 
+  //TIME FORMAT
   const formatTimeAgo = (timestamp) => {
     return moment(timestamp).fromNow();
   };
@@ -35,14 +38,22 @@ function App() {
           formatTimeAgo: formatTimeAgo,
         }}
       >
-        <Header />
-        <VideoPlayer />
-        <VideoData selectedVideo={selectedVideo} />
-        <Comments />
-        <VideoList
-          filteredVideo={filteredVideo}
-          handleSelectVideo={handleSelectVideo}
-        />
+        <div className="app">
+          <Header />
+          <VideoPlayer />
+          <div className="app__desktop">
+            <div className="app__box">
+              <VideoData selectedVideo={selectedVideo} />
+              <Comments />
+            </div>
+            <div className="app__box2">
+              <VideoList
+                filteredVideo={filteredVideo}
+                handleSelectVideo={handleSelectVideo}
+              />
+            </div>
+          </div>
+        </div>
       </videoDescription.Provider>
     </>
   );

@@ -56,9 +56,20 @@
       width: $form-width;
     }
   }
+  &__input {
+    @include mobile-tablet-labels-buttons-text-style;
+    background-color: $secondary-alabaster;
+    border: none;
+    height: 100%;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
   &__search {
     display: flex;
     width: 100%;
+    background-color: $secondary-alabaster;
     height: $form-height-mobile;
     border: $form-border-default;
     border-radius: $form-border-radius;
@@ -67,13 +78,8 @@
       height: $form-height-tablet;
       width: $form-width;
     }
-  }
-  &__input {
-    @include mobile-tablet-labels-buttons-text-style;
-    border: none;
-    height: 100%;
     &:focus {
-      outline: none;
+      border: $form-border-active;
     }
   }
   &__profile {
@@ -116,6 +122,11 @@
     color: $primary-white;
     @include tablet-breakpoint {
       width: $btn-tablet-width;
+    }
+    &:hover {
+      background-color: $secondary-dark-blue;
+      color: $primary-white;
+      cursor: pointer;
     }
   }
 }
