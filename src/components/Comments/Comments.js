@@ -29,7 +29,7 @@ export default function Comments() {
                     className="comments__input"
                     id="addComment"
                     type="text"
-                    spellcheck="true"
+                    spellCheck="true"
                     placeholder="Add a new comment"
                   />
                 </div>
