@@ -41,7 +41,7 @@
   }
   &__underline {
     width: 100%;
-    border-bottom: 0.1rem solid grey;
+    border-bottom: $divider-line;
     @include tablet-breakpoint {
       &--mobile {
         display: none;

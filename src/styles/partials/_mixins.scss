@@ -160,7 +160,7 @@
   font-weight: $regular-txt;
   letter-spacing: $letter-spacing;
   @supports (font-size: clamp(0px, 0px, 0px)) {
-    font-size: clamp($mobileBodyTextSize, 3vw + 0.75rem, $desktopBodyTextSize);
+    font-size: clamp($mobileBodyTextSize, 4vw + 0.95rem, $desktopBodyTextSize);
     line-height: clamp($mobileBodyLineHeight, 2vw, $desktopBodyLineHeight);
     font-weight: $regular-txt;
     letter-spacing: $letter-spacing;

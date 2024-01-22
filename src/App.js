@@ -1,4 +1,5 @@
 import React, { useState, createContext } from "react";
+import moment from "moment";
 import "./styles/global.scss";
 import Header from "./components/header/Header";
 import VideoPlayer from "./components/video/VideoPlayer";
@@ -21,12 +22,17 @@ function App() {
 
   const filteredVideo = videos.filter((video) => video.id !== selectedVideo.id);
 
+  const formatTimeAgo = (timestamp) => {
+    return moment(timestamp).fromNow();
+  };
+
   return (
     <>
       <videoDescription.Provider
         value={{
           videos: videos,
           selectedVideo: selectedVideo,
+          formatTimeAgo: formatTimeAgo,
         }}
       >
         <Header />

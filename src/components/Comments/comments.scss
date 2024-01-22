@@ -1,0 +1,172 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.comments {
+  margin: 0;
+  background-color: $primary-white;
+  width: 100%;
+  height: auto;
+  padding-top: $m-padding-space;
+  padding-bottom: $m-padding-space;
+  padding-left: $m-padding-sides;
+  padding-right: $m-padding-sides;
+  color: $primary-black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @include tablet-breakpoint {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: $t-padding-space;
+    padding-bottom: $t-padding-space;
+    padding-left: $t-padding-sides;
+    padding-right: $t-padding-sides;
+  }
+  &__num {
+    @include mobile-tablet-body-text-style;
+    color: $primary-black;
+  }
+  &__num {
+    font-weight: $bold-txt;
+  }
+  &__form {
+    width: 100%;
+    border-bottom: $divider-line;
+  }
+  &__wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  &__mobilebox {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    padding-top: $m-padding-space;
+    padding-bottom: $m-padding-space;
+  }
+  &__displaybox {
+    width: 3rem;
+    height: 100%;
+    padding-top: 1.5rem;
+  }
+  &__displaypic {
+    background-image: url(../../assets/Images/Mohan-muruge.jpg);
+    @include background-cover;
+    padding: 0.5rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    &--comment {
+      background-color: $secondary-mercury;
+      background-image: url("");
+    }
+  }
+  &__label {
+    @include mobile-tablet-labels-buttons-text-style;
+  }
+  &__formbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: auto;
+    gap: 1.5rem;
+    @include tablet-breakpoint {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+  &__inputbox {
+    width: 100%;
+  }
+
+  &__input {
+    @include mobile-tablet-labels-buttons-text-style;
+    border: $form-border-default;
+    border-radius: $form-border-radius;
+    background-color: $secondary-alabaster;
+    width: 100%;
+    height: 7rem;
+    resize: none;
+    &:focus {
+      outline: none;
+      border: $form-border-active;
+    }
+    @include tablet-breakpoint {
+      height: $form-height-tablet;
+    }
+  }
+  .textarea {
+    font-family: Avenir Next LT Pro;
+  }
+  ::-webkit-input-placeholder {
+    font-family: Avenir Next LT Pro;
+  }
+  :-moz-placeholder {
+    font-family: Avenir Next LT Pro;
+  }
+  ::-moz-placeholder {
+    font-family: Avenir Next LT Pro;
+  }
+  :-ms-input-placeholder {
+    font-family: Avenir Next LT Pro;
+  }
+  &__button {
+    @include mobile-tablet-labels-buttons-text-style;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary-blue;
+    width: $btn-mobile-width;
+    height: $btn-height;
+    border-radius: $btn-border-radius;
+    border: none;
+    color: $primary-white;
+
+    @include tablet-breakpoint {
+      width: $btn-tablet-width;
+      margin-bottom: 0.3rem;
+    }
+  }
+  &__card {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    border-bottom: 0.063rem solid $secondary-mercury;
+  }
+
+  &__commentbox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  &__nametime {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__text {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  &__name,
+  &__time,
+  &__text {
+    @include mobile-tablet-body-text-style;
+    color: $primary-black;
+  }
+  &__name {
+    font-weight: $bold-txt;
+  }
+  &__time {
+    color: $secondary-mercury;
+  }
+}

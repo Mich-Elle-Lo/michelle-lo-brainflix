@@ -1,25 +1,70 @@
+import "./comments.scss";
+
 import { videoDescription } from "../../App";
 import { useContext } from "react";
+import commentAdd from "../../assets/Icons/add_comment.svg";
 
 export default function Comments() {
-  const { selectedVideo } = useContext(videoDescription);
+  const { selectedVideo, formatTimeAgo } = useContext(videoDescription);
 
   const comments = selectedVideo?.comments || [];
+  const commentsNum = comments.length;
+
   return (
     <>
       <div className="comments">
-        <div className="comments__form">JOIN THE CONVERSATION</div>
-        <div className="comments__card">
-          {comments.map((comment) => (
-            <div key={comment.id}>
-              <div className="comments__box">
-                <p>{comment.name}</p>
-                <p>{comment.timestamp}</p>
+        <div className="comments__num">{commentsNum} comments</div>
+        <div className="comments__form">
+          <form className="comments__wrapper">
+            <div className="comments__mobilebox">
+              <div className="comments__displaybox">
+                <div className="comments__displaypic"></div>
               </div>
-              <p>{comment.comment}</p>
+              <div className="comments__formbox">
+                <div className="comments__inputbox">
+                  <label className="comments__label" htmlFor="addComment">
+                    JOIN THE CONVERSATION
+                  </label>
+                  <textarea
+                    className="comments__input"
+                    id="addComment"
+                    type="text"
+                    spellcheck="true"
+                    placeholder="Add a new comment"
+                  />
+                </div>
+                <button className="comments__button" type="submit">
+                  <img
+                    className="comments__logo"
+                    src={commentAdd}
+                    alt="add comment logo"
+                  />
+                  Comment
+                  <div className="comments__emptybox"></div>
+                </button>
+              </div>
             </div>
-          ))}
+          </form>
         </div>
+
+        {comments.map((comment) => (
+          <div className="comments__card" key={comment.id}>
+            <div className="comments__displaybox">
+              <div className="comments__displaypic comments__displaypic--comment"></div>
+            </div>
+            <div className="comments__commentbox">
+              <div className="comments__nametime">
+                <p className="comments__name">{comment.name}</p>
+                <p className="comments__time">
+                  {formatTimeAgo(comment.timestamp)}
+                </p>
+              </div>
+              <div className="comments__comment">
+                <p className="comments__text">{comment.comment}</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );

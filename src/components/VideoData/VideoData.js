@@ -5,7 +5,7 @@ import { videoDescription } from "../../App";
 import { useContext } from "react";
 
 export default function VideoData() {
-  const { selectedVideo } = useContext(videoDescription);
+  const { selectedVideo, formatTimeAgo } = useContext(videoDescription);
 
   return (
     <div className="videosection">
@@ -15,7 +15,7 @@ export default function VideoData() {
         <div className="videosection__subbox">
           <div className="videosection__channel">{selectedVideo.channel}</div>
           <div className="videosection__timestamp">
-            {selectedVideo.timestamp}
+            {formatTimeAgo(selectedVideo.timestamp)}
           </div>
         </div>
         <div className="videosection__subbox">
