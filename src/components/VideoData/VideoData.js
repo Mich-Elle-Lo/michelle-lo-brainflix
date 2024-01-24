@@ -1,7 +1,7 @@
 import viewslogo from "../../assets/Icons/views.svg";
 import likeslogo from "../../assets/Icons/likes.svg";
 import "./VideoData.scss";
-import { videoDescription } from "../../App";
+import { videoDescription } from "../../Pages/Home";
 import { useContext } from "react";
 
 export default function VideoData() {

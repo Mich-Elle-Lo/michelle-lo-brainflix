@@ -1,4 +1,4 @@
-import { videoDescription } from "../../App";
+import { videoDescription } from "../../Pages/Home";
 import { useContext } from "react";
 
 export default function VideoPlayer() {

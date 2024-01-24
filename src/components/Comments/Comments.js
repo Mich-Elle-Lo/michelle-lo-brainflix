@@ -1,6 +1,6 @@
 import "./comments.scss";
 
-import { videoDescription } from "../../App";
+import { videoDescription } from "../../Pages/Home";
 import { useContext } from "react";
 import commentAdd from "../../assets/Icons/add_comment.svg";
 
