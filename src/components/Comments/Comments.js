@@ -1,11 +1,9 @@
 import "./comments.scss";
-
-import { videoDescription } from "../../Pages/Home";
-import { useContext } from "react";
 import commentAdd from "../../assets/Icons/add_comment.svg";
+import { useVideoContext } from "../Utils/Hooks";
 
 export default function Comments() {
-  const { selectedVideo, formatTimeAgo } = useContext(videoDescription);
+  const { selectedVideo, formatTimeAgo } = useVideoContext();
 
   const comments = selectedVideo?.comments || [];
   const commentsNum = comments.length;

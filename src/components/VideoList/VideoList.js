@@ -1,9 +1,19 @@
 import React from "react";
 import "./VideoList.scss";
-import { videoDescription } from "../../App";
-import { useContext } from "react";
+// import { videoDescription } from "../../Pages/Home";
+import { useNavigate } from "react-router-dom";
+import { useVideoContext } from "../Utils/Hooks";
 
-export default function VideoList({ filteredVideo, handleSelectVideo }) {
+export default function VideoList() {
+  const { filteredVideo, handleSelectVideo, selectedVideo } = useVideoContext();
+
+  const navigate = useNavigate();
+
+  const handleClick = (videoId) => {
+    handleSelectVideo(videoId);
+    navigate(`/videos/${videoId}`);
+  };
+
   return (
     <>
       <div className="videolist">
@@ -12,7 +22,7 @@ export default function VideoList({ filteredVideo, handleSelectVideo }) {
           <div
             className="videolist__card"
             key={video.id}
-            onClick={() => handleSelectVideo(video.id)}
+            onClick={() => handleClick(video.id)}
           >
             <div className="videolist__info">
               <div className="videolist__imgbox">
@@ -32,4 +42,6 @@ export default function VideoList({ filteredVideo, handleSelectVideo }) {
       </div>
     </>
   );
+  console.log(handleClick);
+  console.log(selectedVideo);
 }

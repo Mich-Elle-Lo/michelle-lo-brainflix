@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.header {
+.nav {
   margin: 0;
   background-color: $primary-white;
   width: 100%;
@@ -22,6 +22,9 @@
     padding-bottom: $t-padding-space;
     padding-left: $t-padding-sides;
     padding-right: $t-padding-sides;
+  }
+  &__link {
+    text-decoration: none;
   }
   &__logobox {
     height: $logo-height;

@@ -1,12 +1,12 @@
-import { videoDescription } from "../../Pages/Home";
-import { useContext } from "react";
+// import { videoDescription } from "../../Pages/Home";
+import { useVideoContext } from "../Utils/Hooks";
 
 export default function VideoPlayer() {
-  const { selectedVideo } = useContext(videoDescription);
+  const { selectedVideo } = useVideoContext();
 
   return (
     <>
-      <div className="video">
+      <section className="video">
         <div className="video__wrapper">
           <video
             className="video__player"
@@ -17,7 +17,7 @@ export default function VideoPlayer() {
             <source src={selectedVideo.video} />
           </video>
         </div>
-      </div>
+      </section>
     </>
   );
 }

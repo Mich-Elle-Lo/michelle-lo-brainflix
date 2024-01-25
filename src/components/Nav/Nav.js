@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 import searchlogo from "../../assets/Icons/search.svg";
 import uploadlogo from "../../assets/Icons/upload.svg";
 
-export default function Header() {
+export default function nav() {
   return (
     <>
-      <div className="header">
-        <Link to="/">
-          <div className="header__logobox">
-            <div className="header__logo"> </div>
+      <section className="nav">
+        <Link to="/" className="nav__link">
+          <div className="nav__logobox">
+            <div className="nav__logo"> </div>
           </div>
         </Link>
-        <div className="header__flex">
-          <div className="header__mobileflex">
-            <form className="header__search">
+        <div className="nav__flex">
+          <div className="nav__mobileflex">
+            <form className="nav__search">
               <img
-                className="header__searchlogo"
+                className="nav__searchlogo"
                 src={searchlogo}
                 alt="search logo"
               />
@@ -24,25 +24,25 @@ export default function Header() {
                 type="text"
                 placeholder="Search"
                 id="searchBar"
-                className="header__input"
+                className="nav__input"
               />
             </form>
-            <div className="header__profile header__profile--mobile"></div>
+            <div className="nav__profile nav__profile--mobile"></div>
           </div>
-          <Link to="/upload">
-            <button className="header__button">
+          <Link to="/upload" className="nav__link">
+            <button className="nav__button">
               <img
-                className="header__uploadlogo"
+                className="nav__uploadlogo"
                 src={uploadlogo}
                 alt="Upload logo"
               />
               UPLOAD
-              <div className="header__buttonempty"></div>
+              <div className="nav__buttonempty"></div>
             </button>
           </Link>
-          <div className="header__profile header__profile--tablet"></div>
+          <div className="nav__profile nav__profile--tablet"></div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
