@@ -13,17 +13,16 @@ export const VideoProvider = ({ children }) => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState({});
 
-  //FETCH VIDEO LIST
+  //FETCH VIDEO LIST & LOAD FIRST VIDEO DETAILS
   const fetchVideos = async () => {
     try {
       const response = await axios.get(`${baseUrl}videos?api_key=${apiKey}`);
       setVideos(response.data);
-      console.log(response);
       if (!videoId && response.data.length > 0) {
-        setSelectedVideo(response.data[0]);
+        fetchVideoDetails(response.data[0].id);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -34,16 +33,12 @@ export const VideoProvider = ({ children }) => {
   //FETCH VIDEO DETAILS
   const fetchVideoDetails = async (videoId) => {
     try {
-      //   if (!videoId) {
-      //     videoId = [0];
-      //   }
       const response = await axios.get(
         `${baseUrl}videos/${videoId}?api_key=${apiKey}`
       );
       setSelectedVideo(response.data);
-      console.log(response);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

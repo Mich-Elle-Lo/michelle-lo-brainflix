@@ -24,7 +24,11 @@
     padding-right: $t-padding-sides;
   }
   &__link {
+    width: 100%;
     text-decoration: none;
+    @include tablet-breakpoint {
+      width: auto;
+    }
   }
   &__logobox {
     height: $logo-height;
@@ -113,13 +117,13 @@
     }
   }
   &__button {
+    width: $btn-mobile-width;
+    height: $btn-height;
     @include mobile-tablet-labels-buttons-text-style;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: $primary-blue;
-    width: $btn-mobile-width;
-    height: $btn-height;
     border-radius: $btn-border-radius;
     border: none;
     color: $primary-white;

@@ -6,16 +6,7 @@ import VideoData from "../components/VideoData/VideoData";
 import Comments from "../components/Comments/Comments";
 import VideoList from "../components/VideoList/VideoList";
 
-function Home() {
-  const {
-    videos,
-    handleSelectVideo,
-    filteredVideo,
-    formatTimeAgo,
-    selectedVideo,
-    setDefaultOrVideoId,
-  } = useVideoContext();
-
+export default function Home() {
   return (
     <>
       <div className="app">
@@ -33,5 +24,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

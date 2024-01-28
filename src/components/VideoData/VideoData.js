@@ -1,13 +1,10 @@
 import viewslogo from "../../assets/Icons/views.svg";
 import likeslogo from "../../assets/Icons/likes.svg";
 import "./VideoData.scss";
-// import { videoDescription } from "../../Pages/Home";
-// import { useContext } from "react";
 import { useVideoContext } from "../Utils/Hooks";
 
 export default function VideoData() {
   const { selectedVideo, formatTimeAgo } = useVideoContext();
-  console.log(selectedVideo);
   return (
     <div className="videosection">
       <div className="videosection__title">{selectedVideo.title}</div>

@@ -6,7 +6,7 @@ import Home from "./Pages/Home";
 import Upload from "./Pages/Upload";
 import NotFound from "./Pages/NotFound";
 
-function App() {
+export default function App() {
   return (
     <>
       <BrowserRouter>
@@ -15,7 +15,7 @@ function App() {
             <Nav />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/video/:id" element={<Home />} />
+              <Route path="/videos/:id" element={<Home />} />
               <Route path="/upload" element={<Upload />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
@@ -25,5 +25,3 @@ function App() {
     </>
   );
 }
-
-export default App;

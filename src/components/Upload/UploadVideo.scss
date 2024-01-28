@@ -1,0 +1,215 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.upload {
+  margin: 0;
+  background-color: $primary-white;
+  width: 100%;
+  height: auto;
+  padding-top: $m-padding-space;
+  padding-bottom: $m-padding-space;
+  padding-left: $m-padding-sides;
+  padding-right: $m-padding-sides;
+  color: $primary-black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  @include tablet-breakpoint {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: $t-padding-space;
+    padding-bottom: $t-padding-space;
+    padding-left: $t-padding-sides;
+    padding-right: $t-padding-sides;
+  }
+  &__titlebox {
+    width: 100%;
+    @include tablet-breakpoint {
+      height: 4rem;
+      border-bottom: $divider-line;
+    }
+  }
+  &__title {
+    @include mobile-tablet-pageheader-text-style;
+    color: $primary-black;
+  }
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include tablet-breakpoint {
+      padding-bottom: $t-padding-space;
+      border-bottom: $divider-line;
+    }
+    @include desktop-breakpoint {
+      flex-direction: row;
+    }
+  }
+  &__formbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    gap: 1.5rem;
+    @include tablet-breakpoint {
+      flex-direction: row;
+      width: 100%;
+    }
+    @include desktop-breakpoint {
+      width: 100%;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  &__box {
+    width: 100%;
+    @include desktop-breakpoint {
+      width: 30%;
+    }
+  }
+  &__thumbnail {
+    background-color: $secondary-mercury;
+    height: 10rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    @include tablet-breakpoint {
+      width: 60%;
+      height: 12rem;
+    }
+    @include desktop-breakpoint {
+      width: 100%;
+    }
+  }
+  &__thumbnailimg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+  &__label {
+    @include mobile-tablet-labels-buttons-text-style;
+    color: $secondary-mercury;
+  }
+  &__input {
+    @include mobile-tablet-labels-buttons-text-style;
+    border: $form-border-default;
+    border-radius: $form-border-radius;
+    background-color: $secondary-alabaster;
+    width: 100%;
+    height: $form-height-tablet;
+    resize: none;
+    &:focus {
+      outline: none;
+      border: $form-border-active;
+    }
+    @include tablet-breakpoint {
+      height: $form-height-tablet;
+      width: 100%;
+    }
+    @include desktop-breakpoint {
+      width: 100%;
+    }
+  }
+  &__textarea {
+    @include mobile-tablet-labels-buttons-text-style;
+    border: $form-border-default;
+    border-radius: $form-border-radius;
+    background-color: $secondary-alabaster;
+    width: 100%;
+    height: 6rem;
+    resize: none;
+    @include tablet-breakpoint {
+      width: 100%;
+    }
+    @include desktop-breakpoint {
+      height: 7.7rem;
+    }
+    &:focus {
+      outline: none;
+      border: $form-border-active;
+    }
+  }
+  .textarea {
+    font-family: Avenir Next LT Pro;
+  }
+  ::-webkit-input-placeholder {
+    font-family: Avenir Next LT Pro;
+  }
+  :-moz-placeholder {
+    font-family: Avenir Next LT Pro;
+  }
+  ::-moz-placeholder {
+    font-family: Avenir Next LT Pro;
+  }
+  :-ms-input-placeholder {
+    font-family: Avenir Next LT Pro;
+  }
+  &__buttonbox {
+    width: 100%;
+    @include tablet-breakpoint {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+  &__buttonpublish {
+    @include mobile-tablet-labels-buttons-text-style;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary-blue;
+    width: $btn-mobile-width;
+    height: $btn-height;
+    border-radius: $btn-border-radius;
+    border: none;
+    color: $primary-white;
+    @include tablet-breakpoint {
+      width: $btn-tablet-width;
+      margin-bottom: 0.3rem;
+    }
+    @include desktop-breakpoint {
+      margin-right: 1rem;
+    }
+    &:hover {
+      background-color: $secondary-dark-blue;
+      color: $primary-white;
+      cursor: pointer;
+    }
+  }
+  &__cancel {
+    @include mobile-tablet-labels-buttons-text-style;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary-white;
+    width: $btn-mobile-width;
+    height: $btn-height;
+    border-radius: $btn-border-radius;
+    border: none;
+    color: $primary-blue;
+    @include tablet-breakpoint {
+      width: $btn-tablet-width;
+      margin-bottom: 0.3rem;
+    }
+    @include desktop-breakpoint {
+      margin-right: 1rem;
+    }
+    &:hover {
+      color: $secondary-dark-blue;
+      cursor: pointer;
+    }
+  }
+  &__empty {
+    width: 1.25rem;
+  }
+}

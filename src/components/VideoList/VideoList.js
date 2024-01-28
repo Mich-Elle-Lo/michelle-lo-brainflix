@@ -42,6 +42,4 @@ export default function VideoList() {
       </div>
     </>
   );
-  console.log(handleClick);
-  console.log(selectedVideo);
 }

@@ -56,16 +56,18 @@
   }
   &__box {
     width: 100%;
+    margin: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
   &__logobox {
     display: flex;
+    width: auto;
     gap: 0.5rem;
   }
   &__subbox {
-    width: 25%;
+    width: auto;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
