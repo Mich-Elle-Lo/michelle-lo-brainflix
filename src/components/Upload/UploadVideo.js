@@ -41,7 +41,6 @@ export default function UploadVideo() {
           </form>
         </div>
       </div>
-      {/* </div> */}
       <div className="upload__buttonbox">
         <button className="upload__cancel">
           <div className="upload__empty"></div>CANCEL

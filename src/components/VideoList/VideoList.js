@@ -1,11 +1,10 @@
 import React from "react";
 import "./VideoList.scss";
-// import { videoDescription } from "../../Pages/Home";
 import { useNavigate } from "react-router-dom";
 import { useVideoContext } from "../Utils/Hooks";
 
 export default function VideoList() {
-  const { filteredVideo, handleSelectVideo, selectedVideo } = useVideoContext();
+  const { filteredVideo, handleSelectVideo } = useVideoContext();
 
   const navigate = useNavigate();
 
