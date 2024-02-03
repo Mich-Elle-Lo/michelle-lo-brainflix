@@ -1,6 +1,5 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import "../styles/global.scss";
-import { useVideoContext } from "../components/Utils/Hooks";
 import VideoPlayer from "../components/VideoPlayer/VideoPlayer";
 import VideoData from "../components/VideoData/VideoData";
 import Comments from "../components/Comments/Comments";

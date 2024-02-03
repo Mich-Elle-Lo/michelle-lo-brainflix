@@ -1,19 +1,27 @@
 import "./comments.scss";
+import { useState } from "react";
 import commentAdd from "../../assets/Icons/add_comment.svg";
 import { useVideoContext } from "../Utils/Hooks";
 
 export default function Comments() {
-  const { selectedVideo, formatTimeAgo } = useVideoContext();
+  const { selectedVideo, formatTimeAgo, postComment } = useVideoContext();
+  const [commentText, setCommentText] = useState("");
 
   const comments = selectedVideo?.comments || [];
   const commentsNum = comments.length;
 
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+    if (!commentText.trim()) return;
+    await postComment(selectedVideo.id, { comment: commentText });
+    setCommentText("");
+  };
   return (
     <>
       <div className="comments">
         <div className="comments__num">{commentsNum} comments</div>
         <div className="comments__form">
-          <form className="comments__wrapper">
+          <form className="comments__wrapper" onSubmit={handleCommentSubmit}>
             <div className="comments__mobilebox">
               <div className="comments__displaybox">
                 <div className="comments__displaypic"></div>
@@ -28,7 +36,9 @@ export default function Comments() {
                     id="addComment"
                     type="text"
                     spellCheck="true"
+                    value={commentText}
                     placeholder="Add a new comment"
+                    onChange={(e) => setCommentText(e.target.value)}
                   />
                 </div>
                 <button className="comments__button" type="submit">

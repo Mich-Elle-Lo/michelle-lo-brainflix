@@ -1,9 +1,45 @@
 import "./UploadVideo.scss";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import uploadLogo from "../../assets/Icons/upload.svg";
 import uploadThumbnail from "../../assets/Images/Upload-video-preview.jpg";
+import { useVideoContext } from "../Utils/Hooks";
 
 export default function UploadVideo() {
+  const { postVideo, fetchVideos } = useVideoContext();
+  const [videoData, setVideoData] = useState({ title: "", description: "" });
+  const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [uploadError, setUploadError] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await postVideo(videoData);
+      setVideoData({ title: "", description: "" });
+      setUploadSuccess(true);
+      setTimeout(() => {
+        setUploadSuccess(false);
+        fetchVideos();
+        navigate("/");
+      }, 3000);
+      setUploadError(false);
+    } catch (error) {
+      console.error("Error uploading video", error);
+      setUploadError(true);
+      setTimeout(() => setUploadError(false), 3000);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setVideoData({ ...videoData, [name]: value });
+  };
+
+  const handleCancel = () => {
+    setVideoData({ title: "", description: "" });
+  };
+
   return (
     <section className="upload">
       <div className="upload__titlebox">
@@ -17,39 +53,61 @@ export default function UploadVideo() {
           </div>
         </div>
         <div className="upload__formbox">
-          <form className="upload__form">
-            <div className upload__div>
+          <form className="upload__form" onSubmit={handleSubmit}>
+            <div className="upload__div">
               <label className="upload__label" htmlFor="addTitle">
                 TITLE YOUR VIDEO
               </label>
               <input
+                name="title"
                 type="text"
                 placeholder="Add a title to your video"
                 className="upload__input"
+                value={videoData.title}
+                onChange={handleChange}
+                required
               ></input>
             </div>
-            <div className upload__div>
+            <div className="upload__div">
               <label className="upload__label" htmlFor="addDescription">
                 ADD A VIDEO DESCRIPTION
               </label>
               <textarea
+                name="description"
                 type="text"
                 placeholder="Add a description to your video"
                 className="upload__textarea"
+                value={videoData.description}
+                onChange={handleChange}
+                required
               ></textarea>
+            </div>
+            <div className="upload__buttonbox">
+              <button
+                type="button"
+                onClick={handleCancel}
+                className="upload__cancel"
+              >
+                <div className="upload__empty"></div>CANCEL
+                <div></div>
+              </button>
+              <button type="submit" className="upload__buttonpublish">
+                <img src={uploadLogo} /> PUBLISH <div></div>
+              </button>
             </div>
           </form>
         </div>
       </div>
-      <div className="upload__buttonbox">
-        <button className="upload__cancel">
-          <div className="upload__empty"></div>CANCEL
-          <div></div>
-        </button>
-        <button className="upload__buttonpublish">
-          <img src={uploadLogo} /> PUBLISH <div></div>
-        </button>
-      </div>
+      {uploadSuccess && (
+        <div className="upload__success-message">
+          Uploaded Successfully! You will be redirected momentarily!
+        </div>
+      )}
+      {uploadError && (
+        <div className="upload__error-message">
+          Unable to upload. Please try again.
+        </div>
+      )}
     </section>
   );
 }

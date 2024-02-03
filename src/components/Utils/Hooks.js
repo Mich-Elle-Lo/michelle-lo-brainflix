@@ -7,8 +7,8 @@ const VideoContext = createContext();
 
 export const VideoProvider = ({ children }) => {
   const { videoId } = useParams();
-  const apiKey = "7b621a10-171d-40ee-80c4-68f110785e04";
-  const baseUrl = "https://project-2-api.herokuapp.com/";
+  // const apiKey = "7b621a10-171d-40ee-80c4-68f110785e04";
+  const baseUrl = "http://localhost:3000/";
 
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState({});
@@ -16,7 +16,7 @@ export const VideoProvider = ({ children }) => {
   //FETCH VIDEO LIST & LOAD FIRST VIDEO DETAILS
   const fetchVideos = async () => {
     try {
-      const response = await axios.get(`${baseUrl}videos?api_key=${apiKey}`);
+      const response = await axios.get(`${baseUrl}videos`);
       setVideos(response.data);
       if (!videoId && response.data.length > 0) {
         fetchVideoDetails(response.data[0].id);
@@ -33,9 +33,7 @@ export const VideoProvider = ({ children }) => {
   //FETCH VIDEO DETAILS
   const fetchVideoDetails = async (videoId) => {
     try {
-      const response = await axios.get(
-        `${baseUrl}videos/${videoId}?api_key=${apiKey}`
-      );
+      const response = await axios.get(`${baseUrl}videos/${videoId}`);
       setSelectedVideo(response.data);
     } catch (error) {
       console.error(error);
@@ -52,6 +50,33 @@ export const VideoProvider = ({ children }) => {
     await fetchVideoDetails(clickedID);
   };
 
+  //POST VIDEO
+  const postVideo = async (videoData) => {
+    try {
+      const response = await axios.post(`${baseUrl}videos/`, videoData);
+      console.log(response);
+      console.log("added video", response.data);
+      // fetchVideoDetails(videoId);
+    } catch (error) {
+      console.error("error error", error);
+    }
+  };
+
+  //POST COMMENTS
+  const postComment = async (videoId, commentData) => {
+    try {
+      const response = await axios.post(
+        `${baseUrl}videos/${videoId}/comments`,
+        commentData
+      );
+      console.log(response);
+      console.log("added comment", response.data);
+      fetchVideoDetails(videoId);
+    } catch (error) {
+      console.error("error error", error);
+    }
+  };
+
   //FILTER VIDEO
   const filteredVideo = videos.filter((video) => video.id !== selectedVideo.id);
 
@@ -63,11 +88,13 @@ export const VideoProvider = ({ children }) => {
   const funcValue = {
     videos,
     selectedVideo,
+    fetchVideos,
     formatTimeAgo,
     handleSelectVideo,
     filteredVideo,
-    apiKey,
+    postComment,
     baseUrl,
+    postVideo,
   };
   return (
     <VideoContext.Provider value={funcValue}>{children}</VideoContext.Provider>
