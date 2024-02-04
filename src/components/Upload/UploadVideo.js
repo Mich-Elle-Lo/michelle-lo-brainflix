@@ -12,6 +12,7 @@ export default function UploadVideo() {
   const [uploadError, setUploadError] = useState(false);
   const navigate = useNavigate();
 
+  //EVENT WILL CHECK IF UPLOAD SUCESSFUL OR NOT THEN REDIRECT TO MAIN PAGE
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -38,12 +39,13 @@ export default function UploadVideo() {
 
   const handleCancel = () => {
     setVideoData({ title: "", description: "" });
+    navigate("/");
   };
 
   return (
     <section className="upload">
       <div className="upload__titlebox">
-        <div className="upload__title">Upload Video</div>
+        <h2 className="upload__title">Upload Video</h2>
       </div>
       <div className="upload__wrapper">
         <div className="upload__box">
@@ -82,6 +84,7 @@ export default function UploadVideo() {
                 required
               ></textarea>
             </div>
+
             <div className="upload__buttonbox">
               <button
                 type="button"
@@ -99,14 +102,14 @@ export default function UploadVideo() {
         </div>
       </div>
       {uploadSuccess && (
-        <div className="upload__success-message">
+        <aside className="upload__successmessage">
           Uploaded Successfully! You will be redirected momentarily!
-        </div>
+        </aside>
       )}
       {uploadError && (
-        <div className="upload__error-message">
+        <aside className="upload__errormessage">
           Unable to upload. Please try again.
-        </div>
+        </aside>
       )}
     </section>
   );

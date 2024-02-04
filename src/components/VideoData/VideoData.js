@@ -6,8 +6,8 @@ import { useVideoContext } from "../Utils/Hooks";
 export default function VideoData() {
   const { selectedVideo, formatTimeAgo } = useVideoContext();
   return (
-    <div className="videosection">
-      <div className="videosection__title">{selectedVideo.title}</div>
+    <section className="videosection">
+      <h1 className="videosection__title">{selectedVideo.title}</h1>
       <div className="videosection__underline videosection__underline--mobile"></div>
       <div className="videosection__box">
         <div className="videosection__subbox">
@@ -36,9 +36,9 @@ export default function VideoData() {
         </div>
       </div>
       <div className="videosection__underline videosection__underline--tablet"></div>
-      <div className="videosection__description">
+      <article className="videosection__description">
         {selectedVideo.description}
-      </div>
-    </div>
+      </article>
+    </section>
   );
 }

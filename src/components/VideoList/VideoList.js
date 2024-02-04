@@ -15,8 +15,8 @@ export default function VideoList() {
 
   return (
     <>
-      <div className="videolist">
-        <div className="videolist__title">Next Videos</div>
+      <section className="videolist">
+        <h2 className="videolist__title">Next Videos</h2>
         {filteredVideo.map((video) => (
           <div
             className="videolist__card"
@@ -30,6 +30,7 @@ export default function VideoList() {
                   src={video.image}
                   alt="video thumbnail"
                 />
+                {console.log(video.image)}
               </div>
               <div className="videolist__infobox">
                 <div className="videolist__title">{video.title}</div>
@@ -38,7 +39,7 @@ export default function VideoList() {
             </div>
           </div>
         ))}
-      </div>
+      </section>
     </>
   );
 }

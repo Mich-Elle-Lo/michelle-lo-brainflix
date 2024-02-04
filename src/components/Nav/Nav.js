@@ -6,12 +6,13 @@ import uploadlogo from "../../assets/Icons/upload.svg";
 export default function nav() {
   return (
     <>
-      <section className="nav">
-        <Link to="/" className="nav__link">
-          <div className="nav__logobox">
+      <nav className="nav">
+        <div className="nav__logobox">
+          <Link to="/" className="nav__link">
             <div className="nav__logo"> </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
+
         <div className="nav__flex">
           <div className="nav__mobileflex">
             <form className="nav__search">
@@ -42,7 +43,7 @@ export default function nav() {
           </Link>
           <div className="nav__profile nav__profile--tablet"></div>
         </div>
-      </section>
+      </nav>
     </>
   );
 }

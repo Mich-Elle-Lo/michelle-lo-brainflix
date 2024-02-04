@@ -18,9 +18,9 @@ export default function Comments() {
   };
   return (
     <>
-      <div className="comments">
+      <section className="comments">
         <div className="comments__num">{commentsNum} comments</div>
-        <div className="comments__form">
+        <article className="comments__form">
           <form className="comments__wrapper" onSubmit={handleCommentSubmit}>
             <div className="comments__mobilebox">
               <div className="comments__displaybox">
@@ -53,10 +53,10 @@ export default function Comments() {
               </div>
             </div>
           </form>
-        </div>
+        </article>
 
         {comments.map((comment) => (
-          <div className="comments__card" key={comment.id}>
+          <article className="comments__card" key={comment.id}>
             <div className="comments__displaybox">
               <div className="comments__displaypic comments__displaypic--comment"></div>
             </div>
@@ -71,9 +71,9 @@ export default function Comments() {
                 <p className="comments__text">{comment.comment}</p>
               </div>
             </div>
-          </div>
+          </article>
         ))}
-      </div>
+      </section>
     </>
   );
 }

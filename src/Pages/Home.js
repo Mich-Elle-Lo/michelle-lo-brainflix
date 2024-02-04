@@ -8,7 +8,7 @@ import VideoList from "../components/VideoList/VideoList";
 export default function Home() {
   return (
     <>
-      <div className="app">
+      <main className="app">
         <VideoPlayer />
         <div className="app__desktop">
           <div className="app__box">
@@ -19,7 +19,7 @@ export default function Home() {
             <VideoList />
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

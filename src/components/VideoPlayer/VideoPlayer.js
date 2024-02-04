@@ -1,4 +1,4 @@
-// import { videoDescription } from "../../Pages/Home";
+import "./VideoPlayer.scss";
 import { useVideoContext } from "../Utils/Hooks";
 
 export default function VideoPlayer() {
@@ -11,7 +11,6 @@ export default function VideoPlayer() {
           <video
             className="video__player"
             controls
-            style={{ width: "100%" }}
             poster={selectedVideo.image}
           >
             <source src={selectedVideo.video} />

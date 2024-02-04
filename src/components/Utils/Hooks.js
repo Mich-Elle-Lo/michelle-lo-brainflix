@@ -7,7 +7,6 @@ const VideoContext = createContext();
 
 export const VideoProvider = ({ children }) => {
   const { videoId } = useParams();
-  // const apiKey = "7b621a10-171d-40ee-80c4-68f110785e04";
   const baseUrl = "http://localhost:3000/";
 
   const [videos, setVideos] = useState([]);
