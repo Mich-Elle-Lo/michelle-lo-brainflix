@@ -55,7 +55,6 @@ export const VideoProvider = ({ children }) => {
       const response = await axios.post(`${baseUrl}videos/`, videoData);
       console.log(response);
       console.log("added video", response.data);
-      // fetchVideoDetails(videoId);
     } catch (error) {
       console.error("error error", error);
     }
